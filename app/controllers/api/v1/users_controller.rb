@@ -29,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
     render json: {message: 'The user has been deleted!'}
   end
 
-private
+  private
 
   def set_user
     @user = User.find_by(id: params[:id])
