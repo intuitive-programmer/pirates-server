@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :delete]
+  before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -15,18 +15,8 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: {error: 'Unable to create user.'}
+      render json: {error: 'Unable to create user.'}, status: 404
     end
-  end
-
-  def update
-    @user.update(user_params)
-    render json: @user
-  end
-
-  def delete
-    @user.destroy
-    render json: {message: 'The user has been deleted!'}
   end
 
   private
