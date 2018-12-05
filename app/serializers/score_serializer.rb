@@ -1,4 +1,4 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :id, :points
+  attributes :points
   
 end
