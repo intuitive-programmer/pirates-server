@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+
   private
 
   def set_user
@@ -30,4 +31,8 @@ class Api::V1::UsersController < ApplicationController
       :username
     )
   end
+
+
 end
+
+

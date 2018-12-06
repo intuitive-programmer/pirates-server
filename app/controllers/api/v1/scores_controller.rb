@@ -4,4 +4,22 @@ class Api::V1::ScoresController < ApplicationController
         @scores = Score.all
         render json: @scores
     end
+
+    def create
+        @score = Score.new(score_params)
+        if @score.save
+            render json: @score
+        else
+            render json: {error: 'Unable to create score.'}, status: 404
+        end
+    end
+
+    private
+
+    def score_params
+    params.require(:score).permit(
+      :points
+    )
+  end
+
 end
